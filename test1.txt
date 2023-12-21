@@ -1,1 +1,90 @@
 Михаил Наймушин ПИЭ-23-1
+
+
+#include <iostream>
+#include <array>
+#include <cmath>
+#include <random>
+using namespace std;
+
+int main(){
+	setlocale(LC_ALL, "Ru");
+	int max = INT_MIN,min=INT_MAX;
+	cout << "---------1---------" << endl;
+	array<int, 10> numbers;
+	for (int i = 0; i < 10; i++) {
+		numbers[i] = rand() % 10;
+		cout << numbers[i] << " ";
+	}
+	cout << endl;
+	cout << "---------2---------" << endl;
+	cout << "Размер контейнера=" << numbers.size() << endl;
+	for (int i = 0; i < 10; i++) {
+		if (numbers[i] > max) {
+			max = numbers[i];
+		}
+		if (numbers[i] < min) {
+			min = numbers[i];
+		}
+	}
+	cout << "Минимальный элемент=" << min << endl;
+	cout << "Максимальный элемент=" << max << endl;
+	cout << "Первый элемент=" << numbers.front() << endl;
+	cout << "Последний элемент=" << numbers.back() << endl;
+	cout << "---------3---------" << endl;
+	array<int, 10> numbers1;
+	int n;
+	array<int, 10> numbers2;
+	array<int, 10> numbers3;
+	for (int i = 0; i < 10; i++) {
+		cin >> n;
+		numbers1[i] = n;
+	}
+	cout << endl;
+	for (int i = 0; i < 10; i++) {
+		numbers2[i] = rand() % 10;
+		cout << numbers2[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < 10; i++) {
+		numbers3[i] = i;
+		cout << numbers3[i] << " ";
+	}
+	cout << endl;
+	if ((numbers1 == numbers2) && (numbers2 == numbers3)) {
+		cout << "3 массива совпадают :)" << endl;
+	}
+	else {
+		if ((numbers1 == numbers2) && (numbers2 != numbers3) && (numbers1 != numbers3)) {
+			cout << "1 массив = 2 массиву" << endl;
+		}
+		else {
+			if ((numbers1 != numbers2) && (numbers2 == numbers3) && (numbers1 != numbers3)) {
+				cout << "2 массив = 3 массиву" << endl;
+			}
+			else {
+				if ((numbers1 != numbers2) && (numbers2 != numbers3) && (numbers1 == numbers3)) {
+					cout << "1 массив = 3 массиву" << endl;
+				}
+				else{
+					cout << "массивы не равны :(" << endl;
+				}	
+			}
+		}
+	}
+	cout << "----------4---------" << endl;
+	array<int, 10> numbers4;
+	for (int i = 0; i < 10; i++) {
+		numbers4[i] = rand() % 10;
+		cout << numbers4[i] << " ";
+	}
+	cout << endl;
+	array<int, 10> numbers5 = numbers4;
+	for (int i = 0; i < 10; i++) {
+		cout << numbers5[i] << " ";
+	}
+	cout << endl;
+	cout << "----------5-----------" << endl;
+}
+
+
